@@ -15,3 +15,19 @@ var storage = multer.diskStorage({
   }
 })
 ```
+
+## Run in Docker container
+
+The upload path can be set via environmental variable and used in a container
+
+To build:
+
+```
+docker build -t "node_fileupload:dockerfile" .
+```
+
+To run:
+
+```
+docker run -p 3000:3000 -e "UPLOADS=/uploads" --volume=/MYPATH/uploads:/uploads node_fileupload:dockerfile
+```
